@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Book Recommendation System</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/lex.css') }}">
+
+</head>
+<body>
+
+    <header>
+           <h2> Books Recommendation System
+            </h2>
+
+
+
+
+    <nav>
+
+
+
+        <ul class="nav_links">
+
+            <li><a href="/"> Home</a></li>
+            <li><a href="/recommend">Recommend</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+<a class="cta" href="#"><button>Contact</button></a>
+</header>
+    <h1>Top 50 Books</h1>
+
+
+<div class="column">
+
+            {% for i in range(book_name|length) %}
+
+
+
+
+
+                    <div class="card">
+                        <div class="card-body">
+                            <img class="card-img-top" src="{{ image[i] }}">
+                            <p class="name">{{ book_name[i] }}</p>
+                            <p class="author">Author : {{ author[i] }}</p>
+                            <p class="year">Year-Of-Publication : {{  Date[i] }}</p>
+
+                        </div>
+                    </div>
+
+
+
+    {% endfor %}
+
+
+</div>
+
+</body>
+
+</html>

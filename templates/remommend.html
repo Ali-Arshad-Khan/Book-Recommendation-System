@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Recommender System</title>
+    <!-- Latest compiled and minified CSS -->
+<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+<link rel="stylesheet" href="{{ url_for('static',filename='css/recommend.css') }}">
+</head>
+<!--<style>-->
+<!--    .text-white{-->
+<!--        color:white-->
+<!--    }-->
+<!--    .card{-->
+<!--        /*background-color: red;*/-->
+<!--    }-->
+<!--</style>-->
+<body >
+
+    <header>
+           <h2> Books Recommendation System
+            </h2>
+
+
+
+
+    <nav>
+
+
+
+        <ul class="nav_links">
+
+            <li><a href="/"> Home</a></li>
+            <li><a href="/recommend">Recommend</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+<a class="cta" href="#"><button>Contact</button></a>
+</header>
+
+    <div class="container">
+
+
+                    <form action="/recommend_books" method="post">
+                    <input name="user_input" type="text" class="form-control" placeholder="  Type a book name"><br>
+                    <input type="submit" class="warning">
+                </form>
+            </div>
+
+
+
+
+
+
+
+            {% if data %}
+    <div class="column">
+
+
+                {% for i in data %}
+
+
+                    <div class="card">
+                        <div class="card-body">
+                            <img class="card-img-top" src="{{i[2]}}">
+                            <p class="title">{{i[0]}}</p>
+                            <p class="author">Author : {{i[1]}}</p>
+
+                        </div>
+
+                </div>
+
+
+    {% endfor %}
+
+    {% endif %}
+
+</div>
+    </div>
+</body>
+</html>
